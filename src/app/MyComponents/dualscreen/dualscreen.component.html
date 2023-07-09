@@ -1,0 +1,11 @@
+<div class="row my-5">
+    <div class="col-9">
+        <video id="mainscreen" class="object-fit-fill" autoplay></video>
+        <app-button-pallet [booleanArray] = "booleanArray" (dataFromButtonPallete)="buttonValues($event)"></app-button-pallet>
+    </div>
+    <div class="col-3">
+        <div id="subscreencontainer">
+            <video id="subscreen" class="object-fit-fill" autoplay></video>
+        </div>
+    </div>
+</div>

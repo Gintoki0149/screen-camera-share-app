@@ -1,0 +1,11 @@
+<div class="grp">
+    <button type="button" id="pscreen" class="btn btn-danger btn-lg" (click)="presentScreen()">
+        <img src="../../../assets/arrow-up-square.svg" class="object-fit-cover">
+    </button>
+    <button type="button" id="vid"class="btn btn-danger btn-lg" data-bs-toggle="button" (click)="videoShare()" >
+        <img [src]="vidStatus" class="object-fit-cover">
+    </button>
+    <button type="button" id="audio" class="btn btn-danger btn-lg" (click)="audioShare()">
+        <img [src]= "audioStatus" class="object-fit-cover">
+    </button>
+</div>

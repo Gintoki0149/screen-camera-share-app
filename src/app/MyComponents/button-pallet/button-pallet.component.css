@@ -1,0 +1,8 @@
+button{
+    margin: 3px;
+    border-radius: 50%;
+}
+.grp{
+    display: flex;
+    justify-content: center;
+}
