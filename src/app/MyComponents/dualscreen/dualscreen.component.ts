@@ -25,11 +25,15 @@ export class DualscreenComponent implements OnInit{
       this.cameraStream.emit(this.screenstream);
       navigator.mediaDevices.getDisplayMedia({
         video:true
-      }).then(stream=>{
+      }).then((stream : any)=>{
         console.log(stream);
         this.mainscreen.srcObject = stream;
         this.mainscreenstream = stream;
         console.log("this is mainscreenstream"+this.mainscreenstream);
+        stream.getTracks()[0].onended = ()=>{
+          this.booleanArray[0] = false;
+          this.buttonDataFromDualScreen.emit(this.booleanArray);
+        }
       }).catch(error=>{
         console.log(error);
         console.log("I am from dualscreen");

@@ -1,6 +1,6 @@
 <body>
         <div class="container my-2">
-        <div *ngIf="booleanArray[0]; else elseBlock" class="conatiner">
+        <div *ngIf="booleanArray[0]; else elseBlock" class="container">
             <app-dualscreen [booleanArray]="booleanArray" [screenstream]="screensrc" (buttonDataFromDualScreen) = "buttonValues($event)" (cameraStream) = "getCameraStatus($event)"></app-dualscreen>
         </div>
         <ng-template #elseBlock>

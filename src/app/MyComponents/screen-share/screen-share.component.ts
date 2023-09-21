@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-screen-share',
@@ -10,6 +10,8 @@ export class ScreenShareComponent{
   screensrc:MediaStream | undefined;
   booleanArray:boolean[] = [false,false,false];
   audiostream:MediaStream | undefined;
+  constructor(private cdr: ChangeDetectorRef){
+  }
   getCameraStatus($event:MediaStream){
     if(this.screensrc != null)
     this.screensrc?.getTracks().forEach(track=>{
@@ -22,6 +24,7 @@ export class ScreenShareComponent{
     this.booleanArray[0] = $event[0];
     this.booleanArray[1] = $event[1];
     this.booleanArray[2] = $event[2];
+    this.cdr.detectChanges();
     if(this.booleanArray[2]){
       navigator.mediaDevices.getUserMedia({audio:true}).then(stream=>{
         this.audiostream = stream;
